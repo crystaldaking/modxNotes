@@ -35,10 +35,10 @@ class modxNotesPackage
     {
         /** @var modX $modx */
         require MODX_CORE_PATH . 'vendor/autoload.php';
-        $this->modx = new modX();
+        $this->modx = new \MODX\Revolution\modX();
         $this->modx->initialize('mgr');
-        $modx->services->add('error', new modError($modx));
-        $modx->error = $modx->services->get('error');
+        $this->$modx->services->add('error', new modError($modx));
+        $this->$modx->error = $this->$modx->services->get('error');
 
         $root = dirname(dirname(__FILE__)) . '/';
         $assets = $root . 'assets/components/' . $config['name_lower'] . '/';
