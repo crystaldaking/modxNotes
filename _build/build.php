@@ -8,6 +8,7 @@ use MODX\Revolution\Transport\modPackageBuilder;
 use MODX\Revolution\Transport\modTransportPackage;
 use MODX\Revolution\modCategory;
 
+
 class modxNotesPackage
 {
     /** @var modX $modx */
@@ -33,7 +34,7 @@ class modxNotesPackage
     public function __construct($core_path, array $config = [])
     {
         /** @var modX $modx */
-        require($core_path . 'model/modx/modx.class.php');
+        require MODX_CORE_PATH . 'vendor/autoload.php';
         $this->modx = new modX();
         $this->modx->initialize('mgr');
         $modx->services->add('error', new modError($modx));
