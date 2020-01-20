@@ -1,4 +1,5 @@
 <?php
+use MODX\Revolution\modX;
 
 class modxNotes
 {

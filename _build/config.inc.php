@@ -12,7 +12,7 @@ return [
     'name' => 'modxNotes',
     'name_lower' => 'modxnotes',
     'version' => '1.2.1',
-    'release' => 'pl',
+    'release' => 'alfa1',
     // Install package to site right after build
     'install' => true,
     // Which elements should be updated on package upgrade

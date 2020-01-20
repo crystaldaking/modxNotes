@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model package="modxnotes" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" phpdoc-package="modxnotes"
+<model package="modxnotes" baseClass="\xPDO\Om\xPDOObject" platform="mysql" defaultEngine="InnoDB" phpdoc-package="modxnotes"
        version="1.1">
 
     <object class="modxNotesItem" table="modxnotes_items" extends="xPDOSimpleObject">

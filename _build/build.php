@@ -1,4 +1,12 @@
 <?php
+use MODX\Revolution\Error\modError;
+use MODX\Revolution\modDashboardWidget;
+use MODX\Revolution\modMenu;
+use MODX\Revolution\modSystemSetting;
+use MODX\Revolution\modX;
+use MODX\Revolution\Transport\modPackageBuilder;
+use MODX\Revolution\Transport\modTransportPackage;
+use MODX\Revolution\modCategory;
 
 class modxNotesPackage
 {
@@ -24,12 +32,11 @@ class modxNotesPackage
      */
     public function __construct($core_path, array $config = [])
     {
-        /** @noinspection PhpIncludeInspection */
-        require($core_path . 'model/modx/modx.class.php');
         /** @var modX $modx */
         $this->modx = new modX();
         $this->modx->initialize('mgr');
-        $this->modx->getService('error', 'error.modError');
+        $modx->services->add('error', new modError($modx));
+        $modx->error = $modx->services->get('error');
 
         $root = dirname(dirname(__FILE__)) . '/';
         $assets = $root . 'assets/components/' . $config['name_lower'] . '/';
@@ -157,7 +164,7 @@ class modxNotesPackage
         ];
         foreach ($settings as $name => $data) {
             /** @var modSystemSetting $setting */
-            $setting = $this->modx->newObject('modSystemSetting');
+            $setting = $this->modx->newObject(modSystemSetting::class);
             $setting->fromArray(array_merge([
                 'key' => $this->config['name_lower'] . '_' . $name,
                 'namespace' => $this->config['name_lower'],
@@ -190,7 +197,7 @@ class modxNotesPackage
         if (is_array($menus)) {
             foreach ($menus as $name => $data) {
                 /** @var modMenu $menu */
-                $menu = $this->modx->newObject('modMenu');
+                $menu = $this->modx->newObject(modMenu::class);
                 $menu->fromArray(array_merge([
                     'text' => $name,
                     'parent' => 'components',
@@ -227,7 +234,7 @@ class modxNotesPackage
         ];
         foreach ($widgets as $name => $data) {
             /** @var modDashboardWidget $widget */
-            $widget = $this->modx->newObject('modDashboardWidget');
+            $widget = $this->modx->newObject(modDashboardWidget::class);
             $widget->fromArray(array_merge([
                 'name' => $name,
                 'namespace' => 'core',

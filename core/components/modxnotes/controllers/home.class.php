@@ -4,6 +4,8 @@
  * The home manager controller for modxNotes.
  *
  */
+use MODX\Revolution\modExtraManagerController;
+
 class modxNotesHomeManagerController extends modExtraManagerController
 {
     /** @var modxNotes $modxNotes */

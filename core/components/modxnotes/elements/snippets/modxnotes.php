@@ -16,11 +16,11 @@ $outputSeparator = $modx->getOption('outputSeparator', $scriptProperties, "\n");
 $toPlaceholder = $modx->getOption('toPlaceholder', $scriptProperties, false);
 
 // Build query
-$c = $modx->newQuery('modxNotesItem');
+$c = $modx->newQuery(modxNotesItem::class);
 $c->sortby($sortby, $sortdir);
 $c->where(['active' => 1]);
 $c->limit($limit);
-$items = $modx->getIterator('modxNotesItem', $c);
+$items = $modx->getIterator(modxNotesItem::class, $c);
 
 // Iterate through items
 $list = [];

@@ -1,5 +1,4 @@
 <?php
-
 class modxNotesItemChangeColorProcessor extends modObjectProcessor
 {
     public $objectType = 'modxNotesItem';
