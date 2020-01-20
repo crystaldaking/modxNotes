@@ -33,6 +33,7 @@ class modxNotesPackage
     public function __construct($core_path, array $config = [])
     {
         /** @var modX $modx */
+        require($core_path . 'model/modx/modx.class.php');
         $this->modx = new modX();
         $this->modx->initialize('mgr');
         $modx->services->add('error', new modError($modx));
